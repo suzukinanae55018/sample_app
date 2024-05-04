@@ -4,6 +4,9 @@
 
 <p>タイトル</p>
 
-<span><%= list.title %></span>
+<!--名前付きルートasオプションのlist/list_path(showアクションへ)引数必須-->
+  <span>
+    <%= link_to list.title, list_path(list.id) %>
+  </span>
 
 <% end %>
