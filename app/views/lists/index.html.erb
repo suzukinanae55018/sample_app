@@ -1,5 +1,5 @@
 <h1>投稿一覧</h1>
-<!--each文に=は不要-->
+<!--each文に=は不要/ブロック変数-->
 <% @lists.each do |list| %>
 
 <p>タイトル</p>
@@ -10,9 +10,5 @@
   </span>
 <!--画像の表示-->
   <p>画像</p>
-  <% if list.image.attached? %>  
-    <%= image_tag list.image, size: "200x200" %>
-  <% else %>
-    <%= image_tag 'no_image', size: "200x200" %>
-  <% end %>
+  <%= image_tag list.image, size: "200x200" %>
 <% end %>
