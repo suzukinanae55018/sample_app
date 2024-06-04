@@ -15,10 +15,12 @@ class ListsController < ApplicationController
   end
 
   def index
+    puts "作成したキー #{ENV['SECRET_KEY']}"
     @lists = List.all
   end
 
-# 1件だけ取得するのでインスタンス変数名は単数形
+
+  # 1件だけ取得するのでインスタンス変数名は単数形
   def show
     @list = List.find(params[:id])
   end
@@ -36,16 +38,11 @@ class ListsController < ApplicationController
   def destroy
     list = List.find(params[:id])
     list.destroy
-    redirect_to '/lists'
+    redirect_to "/lists"
   end
 
   private
-
-  def list_params
-    params.require(:list).permit(:title, :body)
-  end
-
-  def list_params
-    params.require(:list).permit(:title, :body, :image)
-  end
+    def list_params
+      params.require(:list).permit(:title, :body, :image)
+    end
 end
