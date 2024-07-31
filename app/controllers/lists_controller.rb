@@ -19,7 +19,6 @@ class ListsController < ApplicationController
     @lists = List.all
   end
 
-
   # 1件だけ取得するのでインスタンス変数名は単数形
   def show
     @list = List.find(params[:id])
@@ -41,8 +40,8 @@ class ListsController < ApplicationController
     redirect_to "/lists"
   end
 
-  private
-    def list_params
-      params.require(:list).permit(:title, :body, :image)
-    end
+private
+  def list_params
+    params.require(:list).permit(:title, :body, :image)
+  end
 end
